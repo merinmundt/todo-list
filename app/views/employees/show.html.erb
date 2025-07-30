@@ -1,3 +1,4 @@
+<div class="text-center">
 <h1>Employee Details</h1> 
 
 <p> <strong>Name:</strong>
@@ -6,5 +7,8 @@
  <strong>Role:</strong> 
  <%= @employee.role %> </p>
 
-<%= link_to "Back", new_employee_path %>
-<%= link_to "Home", root_path %>
+<%= button_tag "Back New Employee", type: "button", class: "btn btn-primary p-1 rounded-4 mx-1", onclick: "window.location.href='#{new_employee_path}'" %>
+<%= button_tag "Home ! ", type: "button", class: "btn btn-primary p-1 rounded-4 mx-1", onclick: "window.location.href='#{root_path}'" %>
+<%= button_tag "All Employees", type: "button", class: "btn btn-primary p-1 rounded-4 mx-1", onclick: "window.location.href='#{employees_path}'" %>
+
+</div>

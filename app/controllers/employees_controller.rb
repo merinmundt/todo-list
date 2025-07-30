@@ -7,6 +7,9 @@ class EmployeesController < ApplicationController
   def new
     @employee = Employee.new
   end
+  def edit 
+        @employee = Employee.find(params[:id])
+  end
 
   def create 
     @employee = Employee.new(employee_params)
@@ -16,6 +19,16 @@ class EmployeesController < ApplicationController
       render :new
     end
   end
+  
+  def update
+    @employee = Employee.find(params[:id])
+    if @employee.update(employee_params)
+      redirect_to @employee, notice: "Employee updated successfully."
+    else
+      render :edit
+    end
+  end
+
   def show
     @employee = Employee.find(params[:id])
   end
