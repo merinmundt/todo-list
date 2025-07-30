@@ -2,11 +2,6 @@ class EmployeesController < ApplicationController
 
   def index
     @employees = Employee.all
-    respond_to do |format|
-      format.html { render :index, formats: [:html] }
-      format.json { render json: @employees }
-    end
-
   end
 
   def new
@@ -23,6 +18,11 @@ class EmployeesController < ApplicationController
   end
   def show
     @employee = Employee.find(params[:id])
+  end
+  def destroy
+    @employee = Employee.find(params[:id])
+    @employee.destroy
+    redirect_to employees_path, notice: "Employee deleted successfully."
   end
 
   private 
