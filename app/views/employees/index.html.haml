@@ -1,0 +1,19 @@
+%h1 All Employees
+
+%table.table.table-striped.table-bordered
+  %thead.thead-dark
+    %tr
+      %th ID
+      %th Name
+      %th Role
+      %th Actions
+  %tbody
+    - @employees.each do |employee|
+      %tr
+        %td= employee.id
+        %td= employee.name
+        %td= employee.role
+        %td
+          = link_to "Show", employee_path(employee), class: "btn btn-primary btn-sm"
+          = link_to "Edit", edit_employee_path(employee), class: "btn btn-secondary btn-sm"
+          = link_to "Delete", employee_path(employee), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm"

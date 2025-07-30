@@ -1,0 +1,35 @@
+<div class="container text-center mx-3">
+<h1>Create a new task</h1>
+
+<%= form_with(model: @task, local: true) do |f| %>
+
+    <div class="field"> 
+        <%= f.label :description %> 
+        <%= f.text_field :description %>
+    </div> 
+    <div> 
+        <div class="field"> 
+            <%= f.label :employee_id, "Employee" %>
+            <%= f.collection_select :employee_id, @employees, :id, :name, prompt: "Select Employee" %>
+        </div>
+        <div>
+            <%= link_to "New Employee?", new_employee_path, class: "btn btn-outline-warning rounded-4 mb-2" %>
+        </div>
+    </div> 
+    <div class="field"> 
+    <%= f.label :priority_id, "Priority" %> 
+    <%= f.collection_select :priority_id, @priorities, :id, :description, prompt: "Select Priority" %>
+    </div>
+    <div class="field"> <%= f.label :status %> 
+        <%= f.check_box :status %>
+    </div>
+    <div class="actions"> 
+    <%= f.submit "Create Task", class: "btn btn-outline-primary" %> 
+    <%= link_to "Back to home", root_path, class: "btn btn-primary rounded-4" %>
+
+    </div> 
+
+<% end %>
+
+
+</div>

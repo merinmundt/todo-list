@@ -1,0 +1,28 @@
+<table class="table table-bordered table-striped">
+<thead class="thead-dark">
+<tr>
+<th>Description</th>
+<th>Status</th>
+<th>Priority</th>
+<th>Employee</th>
+</tr>
+</thead>
+<tbody>
+<% tasks.each do |task| %>
+<tr>
+<td><%= task.description %></td>
+<td>
+  <%= form_with(model: task, remote: true, method: :patch, html:{ class: "mb-0"} ) do |f| %>
+    <%= f.hidden_field :status, value: false %>
+    <div class="custom-control custom-checkbox">
+      <%= f.check_box :status, { class: "custom-control-input", id: "task.status.#{task.id}", onchange: "this.form.submit();" }, true, false %>
+      <%= f.label :status, (task.status ? "Completed" : "Pending"), class: "custom-control-label",  for: "task.status.#{task.id}" %>
+    </div>
+  <% end %>
+</td>
+<td><%= task.priority.description if task.priority %></td>
+<td><%= task.employee.name %> </td>
+</tr>
+<% end %>
+</tbody>
+</table>

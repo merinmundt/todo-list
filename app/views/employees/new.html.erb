@@ -1,0 +1,16 @@
+
+<div class="text-center">
+<h1>Create a new Employee</h1>
+
+    <%= form_with model: @employee, local: true do |form| %>
+
+    <div> <%= form.label :name, "Employee Name" %> 
+    <%= form.text_field :name %> </div>
+    <div> <%= form.label :role, "Employee Role" %> 
+    <%= form.text_field :role %> </div> 
+    <div> <%= form.submit "Create Employee", class:"btn btn-outline-primary" %> 
+    <%= link_to "Back to home", root_path, class: "btn btn-primary" %>
+    </div> <% end %>
+
+    
+</div>
