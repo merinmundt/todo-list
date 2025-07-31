@@ -1,10 +1,10 @@
 <table class="table table-bordered table-striped">
 <thead class="thead-dark">
 <tr>
-<th>Description</th>
-<th>Status</th>
-<th>Priority</th>
-<th>Employee</th>
+  <th><%= tasks_sortable_link("Description", "description") %></th>
+  <th><%= tasks_sortable_link("Status", "status") %></th>
+  <th><%= tasks_sortable_link("Priority", "priority_id") %></th>
+  <th><%= tasks_sortable_link("Employee", "employee") %></th>
 </tr>
 </thead>
 <tbody>
