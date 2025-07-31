@@ -23,7 +23,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     if @task.update(task_params)
       respond_to do |format|
-        format.js {head :ok}
+        format.js 
         format.json {render json: { status: @task.status }}
         format.html { redirect_to root_path, notice: "Task Updated Successfully"}
       end

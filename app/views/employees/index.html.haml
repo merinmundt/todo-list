@@ -17,3 +17,5 @@
           = link_to "Show", employee_path(employee), class: "btn btn-primary btn-sm"
           = link_to "Edit", edit_employee_path(employee), class: "btn btn-secondary btn-sm"
           = link_to "Delete", employee_path(employee), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm"
+
+%div.d-flex.justify-content-center= link_to "Home", root_path, class: "btn btn-outline-primary btn-lg"

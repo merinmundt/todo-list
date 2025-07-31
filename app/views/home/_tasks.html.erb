@@ -12,11 +12,19 @@
 <tr>
 <td><%= task.description %></td>
 <td>
-  <%= form_with(model: task, remote: true, method: :patch, html:{ class: "mb-0"} ) do |f| %>
+  <%= form_with(model: task, method: :patch, html:{ class: "mb-0", data: { remote: true, type: "script", turbolinks: false } } ) do |f| %>
     <%= f.hidden_field :status, value: false %>
     <div class="custom-control custom-checkbox">
-      <%= f.check_box :status, { class: "custom-control-input", id: "task.status.#{task.id}", onchange: "this.form.submit();" }, true, false %>
-      <%= f.label :status, (task.status ? "Completed" : "Pending"), class: "custom-control-label",  for: "task.status.#{task.id}" %>
+      <%= f.check_box :status, { 
+            class: "custom-control-input", 
+            id: "task_status_#{task.id}", 
+            onchange: "this.form.submit();" 
+          }, true, false %>
+      <%= f.label :status, (task.status ? "Completed" : "Pending"), 
+            class: "custom-control-label",  
+            for: "task_status_#{task.id}",
+            id: "task_status_label_#{task.id}" 
+          %>
     </div>
   <% end %>
 </td>

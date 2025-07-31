@@ -1,0 +1,1 @@
+$("#task_status_label_<%= @task.id %>").text("<%= j(@task.status ? 'Completed' : 'Pending') %>");
