@@ -2,6 +2,7 @@ class HomeController < ApplicationController
   def index
     @employees = Employee.all
     @tasks_scope = Task.all
+    @priorities = Priority.all
 
     if params[:employee_name].present?
       @tasks_scope = @tasks_scope.joins(:employee).where("LOWER(employees.name) LIKE ?", "%#{params[:employee_name].downcase}%")

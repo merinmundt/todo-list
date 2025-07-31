@@ -1,0 +1,27 @@
+%h1.text-center Priorities
+
+- if @priorities.any?
+  %table.table.table-striped.table-bordered
+    %thead.thead-dark
+      %tr
+        %th ID
+        %th Description
+        %th Created At
+        %th Actions
+    %tbody
+      - @priorities.each do |priority|
+        %tr
+          %td= priority.id
+          %td= priority.description
+          %td= priority.created_at.strftime("%Y-%m-%d %H:%M")
+          %td
+            = link_to "Delete", priority_path(priority), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm"
+- else
+  %p No priorities found.
+
+%div.text-center.mt-3
+  = link_to "Create New Priority", new_priority_path, class: "btn btn-primary"
+  = link_to "Create New Task", new_task_path, class: "btn btn-primary"
+  = link_to "Create New Employee", new_employee_path, class: "btn btn-primary"
+  = link_to "Home", root_path, class: "btn btn-primary"
+

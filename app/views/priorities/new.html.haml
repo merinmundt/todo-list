@@ -1,0 +1,14 @@
+%h1.text-center Create New Priority
+
+%div.container
+  = form_with(model: @priority, local: true) do |f|
+    %div.row.justify-content-center.mb-3
+      %div.col-md-4
+        .form-group
+          = f.label :description, "Priority Description", class: "d-block text-center"
+          = f.text_field :description, class: "form-control"
+    %div.row.justify-content-center
+      %div.col-auto
+        = f.submit "Create Priority", class: "btn btn-primary"
+      %div.col-auto
+        = link_to "Back", priorities_path, class: "btn btn-secondary ml-2"
