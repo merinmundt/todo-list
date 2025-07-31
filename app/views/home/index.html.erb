@@ -1,14 +1,35 @@
 <h1 class="text-center">Welcome to the FAIT Todo Task List </h1>
 
+<%= form_with url: root_path, method: :get, local: true do |f| %>
+
+<div class="form-row justify-content-center"> 
+    <div class="col-md-3">
+        <%= f.label :employee_name, "Employee Name" %> 
+        <%= f.text_field :employee_name, value: params[:employee_name], class: "form-control" %>
+    </div> 
+    <div class="col-md-2"> 
+        <%= f.label :status, "Status" %> 
+        <%= f.select :status, options_for_select([["All", "all"], ["Completed", "completed"], ["Pending", "pending"]],
+            selected: params[:status] || "all"), {}, class: "form-control" %> 
+    </div> 
+    <div class="col-md-3"> 
+        <%= f.label :priority_description, "Priority" %>
+        <%= f.text_field :priority_description, value: params[:priority_description], class: "form-control" %>
+    </div> 
+    <div class="col-auto align-self-end"> 
+        <%= f.submit "Filter", class: "btn btn-secondary" %> </div> 
+    </div> 
+</div>
+<% end %>
+
 <div id="tasks-container" class="pt-3">
-<%= render partial: "tasks", locals: { tasks: @tasks } %>
+    <%= render partial: "tasks", locals: { tasks: @tasks } %>
 </div>
 
 <div class="text-center">
-<%= button_tag "Create New Employee", type: "button", class: "btn btn-primary p-3 rounded-4 mx-3", onclick: "window.location.href='#{new_employee_path}'" %>
-<%= button_tag "Create New Task", type: "button", class: "btn btn-primary p-3 rounded-4 mx-3", onclick: "window.location.href='#{new_task_path}'" %>
-<%= button_tag "See All Employees", type: "button", class: "btn btn-primary p-3 rounded-4 mx-3", onclick: "window.location.href='#{employees_path}'" %>
-
+    <%= button_tag "Create New Employee", type: "button", class: "btn btn-primary p-3 rounded-4 mx-3", onclick: "window.location.href='#{new_employee_path}'" %>
+    <%= button_tag "Create New Task", type: "button", class: "btn btn-primary p-3 rounded-4 mx-3", onclick: "window.location.href='#{new_task_path}'" %>
+    <%= button_tag "See All Employees", type: "button", class: "btn btn-primary p-3 rounded-4 mx-3", onclick: "window.location.href='#{employees_path}'" %>
 </div>
 
 </div>
