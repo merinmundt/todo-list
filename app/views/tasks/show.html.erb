@@ -1,30 +1,31 @@
-<h1>Task Details</h1> 
+<div class="container text-center"> 
+  <h1>Task Details</h1> 
 
-<p>
-  <strong>Employee ID:</strong>
-  <%= @task.employee.id if @task.employee %>
-</p>
+  <p>
+    <strong>Employee ID:</strong>
+    <%= @task.employee.id if @task.employee %>
+  </p>
 
-<p>
-  <strong>Employee Name:</strong>
-  <%= @task.employee.name if @task.employee %>
-</p>
+  <p>
+    <strong>Employee Name:</strong>
+    <%= @task.employee.name if @task.employee %>
+  </p>
 
-<p>
-  <strong>Priority:</strong>
-  <%= @task.priority.description if @task.priority %>
-</p>
+  <p>
+    <strong>Priority:</strong>
+    <%= @task.priority.description if @task.priority %>
+  </p>
 
-<p>
-  <strong>Task Description:</strong>
-  <%= @task.description %>
-</p>
+  <p>
+    <strong>Task Description:</strong>
+    <%= @task.description %>
+  </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @task.status ? "Completed" : "In Progress" %>
-</p>
+  <p>
+    <strong>Status:</strong>
+    <%= @task.status ? "Completed" : "In Progress" %>
+  </p>
 
-<%= link_to "Back", new_task_path %>
-<%= link_to "Home", root_path %>
-
+  <%= link_to "Back", new_task_path %>
+  <%= link_to "Home", root_path %>
+</div>
